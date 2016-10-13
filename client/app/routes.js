@@ -1,7 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router';
-import counter from 'features/counter';
+import { Route, IndexRedirect } from 'react-router';
+import Layout from './components/Layout';
+import log from 'features/log';
 
 export default (
-  <Route path="/" component={counter.components.Counter} />
+  <Route path="/" component={Layout}>
+    <IndexRedirect to="logs" />
+    <Route path="logs" component={log.components.MasterView} />
+  </Route>
 );

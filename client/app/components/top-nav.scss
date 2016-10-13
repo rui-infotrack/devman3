@@ -1,0 +1,9 @@
+@import '../variables';
+
+.container {
+  position: fixed;
+  width: 100%;
+  max-width: 100%;
+  background-color: $primary;
+  padding-left: 200px;
+}

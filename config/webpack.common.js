@@ -10,15 +10,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.styl$/,
+        test: /\.s?(c|a)ss$/,
+        include: helpers.root('client'),
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!stylus'
+          'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!sass'
         )
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css?sourceMap')
       },
       {
         test: /\.(js|jsx)$/,
