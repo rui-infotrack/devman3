@@ -5,7 +5,9 @@ import log from 'features/log';
 
 export default (
   <Route path="/" component={Layout}>
-    <IndexRedirect to="logs" />
-    <Route path="logs" component={log.components.MasterView} />
+    <IndexRedirect to="logs/production" />
+    <Route path="logs/production" component={log.components.MasterView} env="production" />
+    <Route path="logs/stage" component={log.components.MasterView} env="stage" />
+    <Route path="logs/test" component={log.components.MasterView} env="test" />
   </Route>
 );

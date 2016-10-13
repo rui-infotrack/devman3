@@ -2,11 +2,14 @@ import rootReducer from './rootReducer';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
+import createSagaMiddleware from 'redux-saga';
 import {
   applyMiddleware,
   compose,
   createStore
 } from 'redux';
+
+const sagaMiddleware = createSagaMiddleware();
 
 export default () => {
   const store = createStore(
@@ -14,7 +17,8 @@ export default () => {
     compose(
       applyMiddleware(
         thunk,
-        routerMiddleware(browserHistory)
+        routerMiddleware(browserHistory),
+        sagaMiddleware
       )
     )
   );
@@ -26,6 +30,8 @@ export default () => {
       store.replaceReducer(nextRootReducer);
     });
   }
+
+  store.runSaga = sagaMiddleware.run;
 
   return store;
 };

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import counter from 'features/counter';
+import log from 'features/log';
 
 export default combineReducers({
-  [counter.constants.NAME]: counter.reducer,
+  [log.constants.NAME]: log.reducer,
   routing: routerReducer
 });

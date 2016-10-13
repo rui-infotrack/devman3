@@ -1,135 +1,63 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import gs from 'utils/gs';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import * as a from '../actions';
-// import { NAME } from '../constants';
+import classnames from 'classnames';
+import * as a from '../actions';
+import { NAME } from '../constants';
 
-const MasterView = () => (
-  <div>
-    <table className={gs('table')}>
-      <thead>
-        <tr>
-          <th style={{ width: '70px' }}>ID</th>
-          <th>Error</th>
-          <th style={{ width: '50px' }}>Count</th>
-          <th style={{ width: '150px' }}>First Seen</th>
-          <th style={{ width: '150px' }}>Last Seen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>58619</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>4556</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-        <tr>
-          <td>3435</td>
-          <td>The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Threading.Tasks.Task`1[System.Web.Mvc.ActionResult] Import(System.Web.HttpPostedFileBase, Int32, System.String, System.String, Boolean)' in 'Ldm.SupplierRetailer.WebApplication.Areas.NswEnquiries.Controllers.EcosController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
- Parameter name: parameters</td>
-          <td>3</td>
-          <td>84 mins 14 secs ago</td>
-          <td>73 mins 42 secs ago</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
+class MasterView extends Component {
+  componentDidMount() {
+    const { actions } = this.props;
 
-// MasterView.propTypes = {
-//   reducer: PropTypes.object.isRequired,
-//   actions: PropTypes.object.isRequired
-// };
+    actions.loadEntries();
+  }
 
-export default MasterView;
+  render() {
+    const { route: { env }, reducer: { isLoading, entries } } = this.props;
+
+    if (isLoading) {
+      return <h1>Loading...</h1>;
+    }
+
+    return (
+      <div>
+        <h1 className={gs('title', 'is-4')}>Error Logs - <strong>{env.toUpperCase()}</strong></h1>
+        <table className={gs('table')}>
+          <thead>
+            <tr>
+              <th style={{ width: '70px' }}>ID</th>
+              <th>Error</th>
+              <th style={{ width: '50px' }}>Count</th>
+              <th style={{ width: '150px' }}>Last Seen</th>
+              <th style={{ width: '150px' }}>First Seen</th>
+            </tr>
+          </thead>
+          <tbody>
+            {entries.map(x => (
+              <tr>
+                <td>{x.id}</td>
+                <td>{x.error}</td>
+                <td>{x.count}</td>
+                <td>{x.lastSeen}</td>
+                <td>{x.firstSeen}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+}
+
+MasterView.propTypes = {
+  route: PropTypes.object.isRequired,
+  reducer: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
+};
+
+
+export default connect(
+  state => ({ reducer: state[NAME] }),
+  dispatch => ({ actions: bindActionCreators(a, dispatch) })
+)(MasterView);

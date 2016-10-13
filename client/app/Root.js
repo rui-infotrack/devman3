@@ -5,9 +5,11 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { Router, useRouterHistory } from 'react-router';
 import { createHistory } from 'history';
 import configureStore from './configureStore';
+import sagas from './sagas';
 
 const browserHistory = useRouterHistory(createHistory)({ basename: '/' });
 const store = configureStore();
+store.runSaga(sagas);
 const history = syncHistoryWithStore(browserHistory, store);
 
 export default () => (

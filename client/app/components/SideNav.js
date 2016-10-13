@@ -1,41 +1,51 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router'
 import gs from 'utils/gs';
 import styles from './side-nav.scss';
 import classnames from 'classnames';
 
+const Label = ({ ...rest }) => (
+  <p className={classnames(gs('menu-label'), styles.label)}>
+    {rest.children}
+  </p>
+);
+
+const List = ({ ...rest }) => (
+  <ul className={classnames(gs('menu-list'), styles.list)}>
+    {rest.children}
+  </ul>
+);
+
+const NavLink = ({ ...rest }) => (
+  <Link {...rest} activeClassName={styles.active} />
+);
+
 const SideNav = () => (
   <aside className={classnames(gs('menu'), styles.container)}>
-    <p className={gs('menu-label')}>
-      General
-    </p>
-    <ul className={gs('menu-list')}>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">Customers</a></li>
-    </ul>
-    <p className={gs('menu-label')}>
-      Administration
-    </p>
-    <ul className={gs('menu-list')}>
-      <li><a href="#">Team Settings</a></li>
+    <Label>Logs</Label>
+    <List>
       <li>
-        <a className={gs('is-active')} href="#">Manage Your Team</a>
-        <ul>
-          <li><a href="#">Members</a></li>
-          <li><a href="#">Plugins</a></li>
-          <li><a href="#">Add a member</a></li>
-        </ul>
+        <NavLink to="/logs/production">Production</NavLink>
       </li>
-      <li><a href="#">Invitations</a></li>
-      <li><a href="#">Authentication</a></li>
-    </ul>
-    <p className={gs('menu-label')}>
-      Transactions
-    </p>
-    <ul className={gs('menu-list')}>
-      <li><a href="#">Payments</a></li>
-      <li><a href="#">Transfers</a></li>
-      <li><a href="#">Balance</a></li>
-    </ul>
+      <li>
+        <NavLink to="/logs/stage">Stage</NavLink>
+      </li>
+      <li>
+        <NavLink to="/logs/test">Test</NavLink>
+      </li>
+    </List>
+    <Label>Spy Users</Label>
+    <List>
+      <li>
+        <a href="#">Production</a>
+      </li>
+      <li>
+        <a href="#">Stage</a>
+      </li>
+      <li>
+        <a href="#">Test</a>
+      </li>
+    </List>
   </aside>
 );
 
